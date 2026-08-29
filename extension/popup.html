@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AdvSystem Privacy Scanner</title>
+
+    <style>
+        body {
+            width: 350px;
+            min-height: 300px;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        h1 {
+            margin: 0 0 6px;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            margin: 0 0 20px;
+            color: #667085;
+            font-size: 13px;
+        }
+
+        .website {
+            padding: 12px;
+            margin-bottom: 15px;
+
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+
+            font-size: 13px;
+            word-break: break-all;
+        }
+
+        button {
+            width: 100%;
+            padding: 11px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #2563eb;
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+
+            font-size: 13px;
+        }
+
+        .results {
+            margin-top: 15px;
+        }
+
+        .result-card {
+            padding: 12px;
+            margin-bottom: 8px;
+
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #667085;
+        }
+
+        .result-value {
+            margin-top: 3px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .cookie-list {
+            margin-top: 15px;
+        }
+
+        .cookie-item {
+            padding: 10px;
+            margin-bottom: 8px;
+
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+
+            font-size: 12px;
+        }
+
+        .cookie-name {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .cookie-detail {
+            color: #667085;
+            line-height: 1.5;
+        }
+
+        .error {
+            color: #b42318;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>AdvSystem</h1>
+
+    <p class="subtitle">
+        Privacy & Cookie Scanner
+    </p>
+
+    <div class="website">
+        <strong>Website:</strong>
+        <div id="website">Detecting...</div>
+    </div>
+
+    <button id="scanButton">
+        Scan Cookies
+    </button>
+
+    <div id="status" class="status">
+        Ready to scan.
+    </div>
+
+    <div id="results" class="results"></div>
+
+    <div id="cookieList" class="cookie-list"></div>
+
+    <script src="popup.js"></script>
+
+</body>
+</html>

@@ -18,4 +18,5 @@ AD_DOMAINS = [
     "adservice.google.com",
     "amazon-adsystem.com",
     "adnxs.com",
+    "ethicalads.io",
 ]

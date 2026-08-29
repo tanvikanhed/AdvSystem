@@ -1,6 +1,5 @@
 TRACKER_KEYWORDS = [
     "tracking",
-    "tracker",
     "analytics",
     "pixel",
     "fingerprint",

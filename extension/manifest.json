@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AdvSystem Privacy Scanner",
+  "version": "1.0.0",
+  "description": "Detects cookies and privacy-related information on websites.",
+
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "tabs"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
