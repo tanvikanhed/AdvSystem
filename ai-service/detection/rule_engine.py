@@ -8,24 +8,43 @@ def analyze_security_rules(scan_result):
 
     findings = []
 
-    ads = scan_result.get("detection", {}).get(
-        "ads", []
+    detection = scan_result.get(
+        "detection",
+        {}
     )
 
-    trackers = scan_result.get("detection", {}).get(
-        "trackers", []
+    ads = detection.get(
+        "ads",
+        []
     )
 
-    normal_resources = scan_result.get(
-        "detection", {}
-    ).get(
-        "normal_resources", []
+    trackers = detection.get(
+        "trackers",
+        []
     )
 
-    total_resources = scan_result.get(
-        "detection", {}
-    ).get(
+    normal_resources = detection.get(
+        "normal_resources",
+        []
+    )
+
+    total_resources = detection.get(
         "total_resources",
+        0
+    )
+
+    third_party_analysis = scan_result.get(
+        "third_party_analysis",
+        {}
+    )
+
+    third_party_domains = third_party_analysis.get(
+        "third_party_domains",
+        []
+    )
+
+    third_party_domain_count = third_party_analysis.get(
+        "third_party_domain_count",
         0
     )
 
@@ -104,36 +123,21 @@ def analyze_security_rules(scan_result):
         })
 
     # ---------------------------------------------
-    # RULE 5 — Third-party resources
+    # RULE 5 — Third-party domains
     # ---------------------------------------------
 
-    third_party_count = 0
-
-    all_resources = (
-        ads
-        + trackers
-        + normal_resources
-    )
-
-    for resource in all_resources:
-
-        if resource.get(
-            "resource_origin"
-        ) == "third-party":
-
-            third_party_count += 1
-
-    if third_party_count > 0:
+    if third_party_domain_count > 0:
 
         findings.append({
             "rule": "THIRD_PARTY_RESOURCE",
             "severity": "LOW",
             "title": "Third-party resources detected",
             "description": (
-                f"{third_party_count} resource(s) "
-                "come from third-party domains."
+                f"{third_party_domain_count} third-party "
+                "domain(s) were detected on the webpage."
             ),
-            "count": third_party_count
+            "count": third_party_domain_count,
+            "domains": third_party_domains
         })
 
     # ---------------------------------------------
